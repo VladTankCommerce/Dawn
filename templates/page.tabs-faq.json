@@ -74,18 +74,11 @@
         "bg": "shopify:\/\/shop_images\/a-bridge-sitting-in-thick-pink-and-purple-fog.jpg",
         "column_num": 3
       }
-    },
-    "1644584683928b6e8b": {
-      "type": "footer-custom",
-      "settings": {
-        "color": "blue"
-      }
     }
   },
   "order": [
     "main",
     "1644584658530f0ea5",
-    "1644584648979080b8",
-    "1644584683928b6e8b"
+    "1644584648979080b8"
   ]
 }

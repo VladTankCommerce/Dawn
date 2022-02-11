@@ -93,7 +93,7 @@
       "footer-custom": {
         "type": "footer-custom",
         "settings": {
-          "color": ""
+          "color": "blue"
         }
       }
     },
