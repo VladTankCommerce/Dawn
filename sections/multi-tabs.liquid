@@ -291,7 +291,6 @@ let tabsElements = [...document.querySelectorAll('.tc-tab__item')],
 
   for(let i = 0; i<tabsElements.length; i++){
     tabsElements[i].addEventListener('click', function(){
-      console.log('i click on', this)
       for(let j = 0; j<tabsElements.length; j++){
           tabsElements[j].classList.remove('tc-tab__item--active');
           tabsContentBlock[j].classList.remove('tc-tab-content__item--active');
