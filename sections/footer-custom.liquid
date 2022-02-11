@@ -1,0 +1,37 @@
+{% comment %}theme-check-disable UndefinedObject{% endcomment %}
+
+{%- style -%}
+.footer{
+    background-color: {{ section.settings.color }}
+}
+{%- endstyle -%}
+
+<footer class="footer">
+    <h1>Footer</h1>
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer Custom",
+    "settings": [
+        {
+            "type": "color_background",
+            "id": "color",
+            "label": "Color"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Footer Custom"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+
