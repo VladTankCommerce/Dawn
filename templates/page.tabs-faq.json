@@ -5,9 +5,86 @@
       "type": "tabs-faq",
       "settings": {
       }
+    },
+    "1644584658530f0ea5": {
+      "type": "multi-tabs",
+      "blocks": {
+        "16445846581fa7c57d-0": {
+          "type": "block",
+          "settings": {
+            "name_tab": "Tab",
+            "first_image": "shopify:\/\/shop_images\/stream-water-passing-through-cliffs.jpg",
+            "second_image": "shopify:\/\/shop_images\/a-cocktail-with-a-touch-of-class.jpg",
+            "tab_caption": "Content caption",
+            "tab_description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.<\/p>"
+          }
+        },
+        "50b18a4a-b72f-455e-a79a-e30b37c06ec5": {
+          "type": "block",
+          "settings": {
+            "name_tab": "Tab",
+            "tab_caption": "Content caption",
+            "tab_description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.<\/p>"
+          }
+        },
+        "d9b2dbad-4dd2-4908-8805-9739e0e5adc3": {
+          "type": "block",
+          "settings": {
+            "name_tab": "Tab",
+            "first_image": "shopify:\/\/shop_images\/coding-on-laptop.jpg",
+            "second_image": "shopify:\/\/shop_images\/shellfish-pasta-pizza-and-italian-food.jpg",
+            "tab_caption": "Content caption",
+            "tab_description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "16445846581fa7c57d-0",
+        "50b18a4a-b72f-455e-a79a-e30b37c06ec5",
+        "d9b2dbad-4dd2-4908-8805-9739e0e5adc3"
+      ],
+      "settings": {
+        "caption": "Tabs Section",
+        "subcaption": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.<\/p>"
+      }
+    },
+    "1644584648979080b8": {
+      "type": "faq-alternative",
+      "blocks": {
+        "1644584648af7cc87d-0": {
+          "type": "text",
+          "settings": {
+            "faq_question": "Some text here",
+            "faq_answer": "<p>Some rich text here<\/p>"
+          }
+        },
+        "1644584648af7cc87d-1": {
+          "type": "text",
+          "settings": {
+            "faq_question": "Some text here",
+            "faq_answer": "<p>Some rich text here<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1644584648af7cc87d-0",
+        "1644584648af7cc87d-1"
+      ],
+      "settings": {
+        "column_num": 3
+      }
+    },
+    "1644584683928b6e8b": {
+      "type": "footer-custom",
+      "settings": {
+        "color": "blue"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "1644584658530f0ea5",
+    "1644584648979080b8",
+    "1644584683928b6e8b"
   ]
 }
