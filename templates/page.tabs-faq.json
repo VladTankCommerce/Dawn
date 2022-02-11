@@ -26,22 +26,11 @@
             "tab_caption": "Content caption",
             "tab_description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.<\/p>"
           }
-        },
-        "d9b2dbad-4dd2-4908-8805-9739e0e5adc3": {
-          "type": "block",
-          "settings": {
-            "name_tab": "Tab",
-            "first_image": "shopify:\/\/shop_images\/coding-on-laptop.jpg",
-            "second_image": "shopify:\/\/shop_images\/shellfish-pasta-pizza-and-italian-food.jpg",
-            "tab_caption": "Content caption",
-            "tab_description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.<\/p>"
-          }
         }
       },
       "block_order": [
         "16445846581fa7c57d-0",
-        "50b18a4a-b72f-455e-a79a-e30b37c06ec5",
-        "d9b2dbad-4dd2-4908-8805-9739e0e5adc3"
+        "50b18a4a-b72f-455e-a79a-e30b37c06ec5"
       ],
       "settings": {
         "caption": "Tabs Section",
