@@ -1,0 +1,44 @@
+{%- style -%}
+    .header h1,
+    .footer h1{
+        color:#fff;
+        text-align: center;
+        margin: 0;
+    }
+    .header,
+    .footer{
+        display: block;
+        padding: 15px 25px;
+        background-color: {{ section.settings.color }}
+    }
+{%- endstyle -%}
+
+
+<header class="header">
+    <h1>Header</h1>
+</header>
+
+{% schema %}
+  {
+    "name": "Header Custom",
+    "settings": [
+        {
+            "type": "color_background",
+            "id": "color",
+            "label": "Color"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Header Custom"
+        }
+    ]
+  }
+{% endschema %}
+
+
+
+{% javascript %}
+{% endjavascript %}
+
+

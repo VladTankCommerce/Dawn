@@ -1,0 +1,240 @@
+{%- style -%}
+
+.block-faq__item {
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  background-color: #f54c4c;
+  transition: .3s;
+  display: flex;
+  flex-direction: column;
+}
+.block-faq__item:last-child {
+  margin-bottom: 0;
+}
+.block-faq__item--visible {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.block-faq__item--visible > span {
+  font-size: 18px;
+  color: #fff;
+}
+
+.block-faq__plus {
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  position: relative;
+  border-radius: 50%;
+}
+
+.block-faq__plus span {
+  width: 13px;
+  height: 2px;
+  background-color: #f54c4c;
+  position: absolute;
+  transition: .4s;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.block-faq__plus span:last-child {
+  width: 2px;
+  height: 13px;
+}
+
+.block-faq__item--hidden {
+  margin-top: 0px;
+  height: 0;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: 0 0;
+  transition: all .5s;
+}
+
+.block-faq__item--hidden p {
+  line-height: 15px;
+  margin: 0;
+  color: #fff;
+}
+
+.block-faq__item--open {
+  background-color: #fc2828;
+}
+
+.block-faq__item--open .block-faq__item--hidden {
+  transform: scaleY(1);
+  height: auto;
+  margin-top: 20px;
+  opacity: 1;
+
+}
+
+.block-faq__item--open .block-faq__plus > span:last-child {
+  transform: rotate(0);
+  opacity: 0;
+}
+
+#container {  
+  display: flex;
+  gap: 5px;
+  background-image: url({{ section.settings.bg| image_url }});
+  background-size: cover; 
+  padding-top:50px;
+  padding-bottom:50px;
+}
+.tc-align-center{padding: 0 25px}
+
+@media screen and (max-width: 700px){
+  #container{
+    flex-direction: column;
+    gap: 10px;
+  }
+  #container>div{
+    width:100%!important;
+  }
+  .block-faq__item{
+    padding: 5px 10px;
+    margin-bottom: 10px; 
+  }
+  .block-faq__item span{
+    font-size: 15px;
+  }
+  .block-faq__item--open>.block-faq__item--hidden{
+    margin-top:5px;
+  }
+}
+
+{%- endstyle -%}
+
+
+<div id='container' class=' tc-align-center'>
+  {%-liquid
+    if section.blocks.size >= section.settings.column_num
+      assign min_offset = section.blocks.size | divided_by: section.settings.column_num
+      
+      assign f_b = 0
+    else
+      assign min_offset = 0
+    endif
+  -%}
+
+  {%- for column in (1..section.settings.column_num) -%}
+
+    {%-liquid
+      assign var_1 = min_offset | times:  section.settings.column_num
+      assign var_2 = section.blocks.size | minus:  var_1 | minus: forloop.index | plus: 1
+          
+      if var_2 > 0
+        assign offset = offset | plus: min_offset | plus: 1
+      else
+        assign offset = offset | plus: min_offset
+      endif
+
+      if forloop.first
+        assign offset = offset | minus: 1
+      endif
+    -%}
+    
+    <div style="width:{{100 | divided_by: section.settings.column_num}}%">
+      {%- for index in (f_b..offset)-%}
+        <div class='block-faq__item'>
+            <div class="block-faq__item--visible">
+              <span>{{section.blocks[index].settings.faq_question}}</span>
+              <div class="block-faq__plus">
+                  <span></span>
+                  <span></span>
+              </div>
+            </div>
+            <div class="block-faq__item--hidden">
+                {{section.blocks[index].settings.faq_answer}}
+            </div>
+        </div>
+      {%- endfor -%}
+      {%- assign f_b = offset | plus:1 -%}
+    </div>
+  {%- endfor -%}
+  </div>
+
+{%- javascript -%}
+
+  faqItems = document.querySelectorAll('.block-faq__item');
+
+  for(let i = 0; i<faqItems.length; i++){
+      faqItems[i].addEventListener('click',function(){
+       
+          if(this.classList.contains('block-faq__item--open')){
+              faqItems[i].classList.remove('block-faq__item--open');
+          }else{
+            for(let j = 0; j<faqItems.length;j++){
+              faqItems[j].classList.remove('block-faq__item--open');
+            } 
+            this.classList.add('block-faq__item--open');
+          }
+      })
+  }
+
+{%- endjavascript -%}
+
+{% schema %}
+{
+  "name": "FAQ Section Alternative",
+  "tag": "section",
+  "class": "faq-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg",
+      "label": "Background"
+    },
+    {
+        "type": "range",
+        "id": "column_num",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Column number",
+        "default": 3
+    }
+  
+   
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Review items",
+      "settings": [
+        {
+          "type": "text",
+          "id": "faq_question",
+          "label": "Question",
+          "default": "Some text here"
+        },
+        {
+          "type": "richtext",
+          "id": "faq_answer",
+          "label": "Answer",
+          "default": "<p>Some rich text here</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Section Alternative",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
