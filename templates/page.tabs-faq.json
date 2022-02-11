@@ -1,0 +1,13 @@
+{
+  "layout": "theme.tabs-faq",
+  "sections": {
+    "main": {
+      "type": "tabs-faq",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

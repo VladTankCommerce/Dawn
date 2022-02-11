@@ -1,0 +1,374 @@
+{%- style -%}
+
+.tc-container {
+    padding-right: 50px 0;
+  }
+  
+  .fade {
+    opacity: 0;
+    transition: opacity .15s linear;
+  }
+  
+  .fade.in {
+    transition: opacity .15s linear;
+    opacity: 1;
+  }
+  
+  .tc-tab-section__caption h2,
+  .tc-tab-section__caption div > p {
+    text-align: center;
+  }
+  
+  .tc-tab-section__caption div {
+    width: 60%;
+    margin: 0 auto;
+  }
+  
+  .tc-tab-section__wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 25px;
+  }
+  
+  .tc-tab-section__tab {
+    width: inherit;
+  }
+  
+  .tc-tab-section__item {
+    margin: 0 auto;
+  }
+  
+  .tc-tab__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    list-style: none;
+    border-bottom: 1px solid #b6b5b5;
+  }
+  
+  .tc-tab__item {
+    padding: 7px 25px;
+    background-color: #ebebeb;
+    border: 1px solid #b6b5b5;
+    border-bottom: none;
+    margin-right: 5px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .tc-tab__item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    background-color: transparent;
+    width: 0%;
+    transition: .6s;
+    height: 1px;
+  }
+  
+  .tc-tab__item--active {
+    background-color: #fff;
+  }
+  
+  .tc-tab__item--active::before {
+    background-color: #fff;
+    width: 100%;
+  }
+  
+  .tc-tab-content__item {
+    width: inherit;
+    padding-top: 50px;
+    display: none;
+    transition: .3s;
+  }
+  
+  .tc-tab-content__img-block,
+  .tc-tab-content__text-block {
+    width: 50%;
+
+  }
+  
+  .tc-tab-content__img-block {
+    display: flex;
+    gap : 5px
+  }
+  
+  .tc-tab-content__img-block img {
+    width: 50%;
+    object-fit: cover;
+    object-position: center;
+    height: 310px;
+  }
+    
+  .tc-tab-content__text-block{
+    margin-left: 25px;
+  }
+  .tc-tab-content__text-block h1 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .tc-tab-content__text-block p {
+    font-size: 17px;
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+  
+  .tc-tab-content__text-block a {
+    padding: 5px 20px;
+    border-radius: 35px;
+    background-color: #f3605c;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  
+  .tc-tab-content__text-block a:hover {
+    background-color: #f84a44;
+  }
+  
+  .tc-tab-content__item--active {
+    display: flex;
+    opacity: 1;
+  }
+  
+ 
+  
+  @media screen and (max-width: 768px) {
+    .tc-container {
+      padding-bottom: 50px;
+    }
+  
+    .tc-tab-section__caption div {
+      width: 80%;
+      font-size: 14px;
+    }
+  
+  
+    .tc-tab__list {
+      flex-direction: column;
+    }
+  
+    .tc-tab__item {
+      margin: 0;
+    }
+  
+    .tc-tab-content__img-block,
+    .tc-tab-content__text-block {
+      width: 100%;
+      margin-left:0;
+      margin-top: 15px;
+    }
+  
+    .tc-tab-content__item {
+      flex-direction: column;
+    }
+  
+    .tc-tab-content__img-block {
+      margin-right: 0;
+    }
+  
+    .tc-tab-content__img-block img {
+      max-width: 100%;
+    }
+  
+    .tc-tab-content__text-block h1 {
+      font-size: 16px;
+    }
+  
+    .tc-tab-content__text-block p {
+      font-size: 15px;
+    }
+  
+    .tc-tab-content__text-block a {
+      font-size: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+  
+    .tc-tab-section__caption div {
+      width: 100%;
+      font-size: 13px;
+    }
+  
+    .tc-tab-content__img-block img {
+      height: 200px;
+    }
+  }
+  .border{
+      border: 1px solid #e1e1e1;
+  }
+{%- endstyle -%}
+
+<div class="tc-container tc-tab-section">
+    <div class="tc-tab-section__caption">
+        <h2> {{ section.settings.caption }} </h2>
+        <div>
+            <p>
+              {{ section.settings.subcaption }}
+            </p>
+        </div>
+    </div>
+    <div class="tc-tab-section__wrapper">
+      <div class="tc-tab">
+        <ul class="tc-tab__list">
+          {% for block in section.blocks %}
+            {% if forloop.first == true %}
+              <li class="tc-tab__item tc-tab__item--active" >
+                {{  block.settings.name_tab }}
+              </li>
+            {% else %}
+            <li class="tc-tab__item" >
+              {{block.settings.name_tab }}
+            </li>
+            {% endif %}
+          {% endfor %} 
+        </ul>
+      </div>
+      <div class="tc-tab-section__content tc-tab-content">
+        {% for block in section.blocks %}
+            {% if forloop.first == true %}
+              <div class="tc-tab-content__item tc-tab-content__item--active">
+                <div class="tc-tab-content__img-block">
+                    {% if block.settings.first_image %}
+                      {{ block.settings.first_image | image_url: width: 2048 | image_tag }}
+                    {% else %}
+                      {{ 'image' | placeholder_svg_tag: 'border' }}
+                    {% endif %}
+                    {% if block.settings.second_image %}
+                      {{ block.settings.second_image | image_url: width: 2048 | image_tag }}
+                    {% else %}
+                      {{ 'image' | placeholder_svg_tag: 'border' }}
+                    {% endif %}
+                </div>
+                <div class="tc-tab-content__text-block">
+                    <h1>
+                        {{ block.settings.tab_caption}}
+                    </h1>
+                    
+                      {{ block.settings.tab_description}}
+                    
+                </div>
+              </div>
+            {% else %}
+            <div class="tc-tab-content__item">
+              <div class="tc-tab-content__img-block">
+                {% if block.settings.first_image %}
+                {{ block.settings.first_image | image_url: width: 2048 | image_tag }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'border' }}
+              {% endif %}
+              {% if block.settings.second_image %}
+                {{ block.settings.second_image | image_url: width: 2048 | image_tag }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'border' }}
+              {% endif %}
+              </div>
+              <div class="tc-tab-content__text-block">
+                  <h1>
+                    {{ block.settings.tab_caption | split: 'dada'}}
+                  </h1>       
+                  {{ block.settings.tab_description}}
+              </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+      
+      </div>
+    </div>
+  </div>
+
+
+{%- javascript -%}
+
+let tabsElements = [...document.querySelectorAll('.tc-tab__item')],
+tabsContentBlock = document.querySelectorAll('.tc-tab-content__item');
+
+for(let i = 0; i<tabsElements.length; i++){
+tabsElements[i].addEventListener('click', function(){
+    for(let j = 0; j<tabsElements.length; j++){
+        tabsElements[j].classList.remove('tc-tab__item--active');
+        tabsContentBlock[j].classList.remove('tc-tab-content__item--active');
+    }
+    if(this.classList.contains('active')){
+
+    }else{
+        let indexTab;
+        this.classList.add('tc-tab__item--active');
+        indexTab = tabsElements.indexOf(this);
+        tabsContentBlock[indexTab].classList.add('tc-tab-content__item--active');
+    }
+});
+}
+
+{%- endjavascript -%}
+
+{% schema %}
+{
+  "name": "Tabs Section",
+  "tag": "section",
+  "class": "tabs-section",
+  "max_blocks": 3,
+  "settings": [
+    {
+        "type": "text",
+        "id": "caption",
+        "label": "Caption"
+    },
+    {
+        "type": "richtext",
+        "id": "subcaption",
+        "label": "Subcaption"
+    }
+  ],
+    "blocks": [{
+      "type": "block",
+      "name": "Tab block",
+      "settings":[
+        {
+        "type": "text",
+        "id": "name_tab",
+        "label":"Name",
+        "default":"Tab"
+        },
+        {
+         "type": "image_picker",
+         "id":"first_image",
+         "label": "First Image"
+        },
+        {
+         "type": "image_picker",
+         "id":"second_image",
+         "label": "Second Image"
+        },
+        {
+         "type": "text",
+         "id":"tab_caption",
+         "label": "Caption",
+         "default": "Content caption"
+        },
+        {
+         "type": "richtext",
+         "id":"tab_description",
+         "label": "Description",
+         "default": "<p>Content description</p>"
+        }
+      ]
+    }],
+  "presets": [
+    {
+      "name": "Tabs Section",
+      "blocks":[
+        {
+         "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
