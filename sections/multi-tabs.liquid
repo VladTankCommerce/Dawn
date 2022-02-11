@@ -287,24 +287,25 @@
 {%- javascript -%}
 
 let tabsElements = [...document.querySelectorAll('.tc-tab__item')],
-tabsContentBlock = document.querySelectorAll('.tc-tab-content__item');
+    tabsContentBlock = document.querySelectorAll('.tc-tab-content__item');
 
-for(let i = 0; i<tabsElements.length; i++){
-tabsElements[i].addEventListener('click', function(){
-    for(let j = 0; j<tabsElements.length; j++){
-        tabsElements[j].classList.remove('tc-tab__item--active');
-        tabsContentBlock[j].classList.remove('tc-tab-content__item--active');
-    }
-    if(this.classList.contains('active')){
+  for(let i = 0; i<tabsElements.length; i++){
+    tabsElements[i].addEventListener('click', function(){
+      console.log('i click on', this)
+      for(let j = 0; j<tabsElements.length; j++){
+          tabsElements[j].classList.remove('tc-tab__item--active');
+          tabsContentBlock[j].classList.remove('tc-tab-content__item--active');
+      }
+      if(this.classList.contains('active')){
 
-    }else{
-        let indexTab;
-        this.classList.add('tc-tab__item--active');
-        indexTab = tabsElements.indexOf(this);
-        tabsContentBlock[indexTab].classList.add('tc-tab-content__item--active');
-    }
-});
-}
+      }else{
+          let indexTab;
+          this.classList.add('tc-tab__item--active');
+          indexTab = tabsElements.indexOf(this);
+          tabsContentBlock[indexTab].classList.add('tc-tab-content__item--active');
+      }
+  });
+  }
 
 {%- endjavascript -%}
 
