@@ -4,10 +4,16 @@
 .footer{
     background-color: {{ section.settings.color }}
 }
+.footer div{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 {%- endstyle -%}
 
 <footer class="footer">
     <h1>Footer</h1>
+    <div style="height: 50px;width: 50px;background-color: red;">bye</div>
 </footer>
 
 {% schema %}
