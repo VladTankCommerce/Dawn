@@ -23,6 +23,16 @@
           "type": "block",
           "settings": {
             "name_tab": "Tab",
+            "first_image": "shopify:\/\/shop_images\/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg",
+            "second_image": "shopify:\/\/shop_images\/coding-on-laptop.jpg",
+            "tab_caption": "Content caption",
+            "tab_description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.<\/p>"
+          }
+        },
+        "70ee403a-f6d9-415c-a542-2d322480d9b8": {
+          "type": "block",
+          "settings": {
+            "name_tab": "Tab",
             "tab_caption": "Content caption",
             "tab_description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.<\/p>"
           }
@@ -30,7 +40,8 @@
       },
       "block_order": [
         "16445846581fa7c57d-0",
-        "50b18a4a-b72f-455e-a79a-e30b37c06ec5"
+        "50b18a4a-b72f-455e-a79a-e30b37c06ec5",
+        "70ee403a-f6d9-415c-a542-2d322480d9b8"
       ],
       "settings": {
         "caption": "Tabs Section",
