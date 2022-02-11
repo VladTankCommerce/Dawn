@@ -1,7 +1,7 @@
 {%- style -%}
 
 .tc-container {
-    padding-right: 50px 0;
+    padding: 50px 0;
   }
   
   .fade {
@@ -318,12 +318,14 @@ tabsElements[i].addEventListener('click', function(){
     {
         "type": "text",
         "id": "caption",
-        "label": "Caption"
+        "label": "Caption",
+        "default": "Tabs Section"
     },
     {
         "type": "richtext",
         "id": "subcaption",
-        "label": "Subcaption"
+        "label": "Subcaption",
+        "default": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.</p>"
     }
   ],
     "blocks": [{
@@ -356,7 +358,7 @@ tabsElements[i].addEventListener('click', function(){
          "type": "richtext",
          "id":"tab_description",
          "label": "Description",
-         "default": "<p>Content description</p>"
+         "default": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eum laboriosam molestias, animi sapiente, et commodi voluptatem tempore ea consequuntur, repudiandae architecto magnam quaerat ut minima! Beatae sunt est architecto.</p>"
         }
       ]
     }],
